@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Gallery</title>
+
+  <style>
+    /* General Styles */
+    body {
+      font-family: serif;
+      margin: 0;
+      padding: 0;
+      background: url(bg.jpg) no-repeat;
+	  background-size: cover;
+	  background-position: center;
+    }
+
+    header {
+      background-color: rgba(0,0,0,0.2);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3.6rem;
+	  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-width: 1px;
+    }
+	
+    /* Navigation Buttons */
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0 0;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    nav ul li {
+      margin: 0;
+    }
+
+    nav ul li a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #483D8B;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #6A5ACD;
+      transform: translateY(-3px);
+	  }
+
+    /* Section Tiles */
+    .tile {
+	  font-size: 17px;
+      padding: 55px;
+      margin: 20px auto;
+      max-width: 1000px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 5px solid #B0C4DE;
+    }
+
+    .tile:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    footer {
+	font-size: 20px;
+      text-align: center;
+      padding: 25px;
+      background-color: rgba(0,0,0,0.2);
+      color: #fff;
+      width: 100%;
+      margin-top: 70px;
+      box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Gallery Styles */
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .gallery-item {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery-item img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Hidden Sections */
+    .hidden {
+      display: none;
+    }
+
+    /* About Me Section */
+    #about p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    /* Contact Section */
+    #contact ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    #contact ul li {
+      margin: 10px 0;
+    }
+
+    #contact ul li a {
+      color: #1abc9c;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    #contact ul li a:hover {
+      color: #16a085;
+    }
+	
+	@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap");
+
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: serif;
+}
+
+.about-us {
+  display: flex;
+  align-items: center;
+  height: 40vh;
+  width: 100%;
+  padding: 35px 0;
+  background: #fff;
+}
+
+.pic {
+  height: 440px;
+  width: 350px;
+  border-radius: 12px;
+  margin-right: 100px;
+}
+
+.about {
+  width: 1400px;
+  max-width: 85%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.text {
+  width: 540px;
+}
+
+.text h2 {
+  color: #333;
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.text h5 {
+  color: #333;
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+span {
+  color: #4070f4;
+}
+
+.text p {
+  color: #333;
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: 1px;
+}
+
+.data {
+  margin-top: 30px;
+}
+
+.next {
+  font-size: 18px;
+  background: #4070f4;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  padding: 12px 40px;
+  border-radius: 6px;
+  transition: 0.5s;
+}
+
+.next:hover {
+  background: #000;
+}
+
+  </style>
+</head>
+<body>
+
+
+  <header>
+    <h1>CASSANDRA MANABAT</h1>
+    <nav>
+      <ul>
+        <li><a href="file:///C:/Users/cassa/OneDrive/Desktop/Emp-tech%20finals/try.html" onclick="showSection('about')">ABOUT ME</a></li>
+        <li><a href="file:///C:/Users/cassa/OneDrive/Desktop/Emp-tech%20finals/index2.html" onclick="showSection('contact')">CONTACT & SOCIAL MEDIAS</a></li>
+        <li><a href="file:///C:/Users/cassa/OneDrive/Desktop/Emp-tech%20finals/galley.html">PHOTO GALLERY</a></li>
+		<li><a href="file:///C:/Users/cassa/OneDrive/Desktop/Emp-tech%20finals/moree.html" onclick="showSection('more')">HOBBIES</a></li>
+		
+      </ul>
+    </nav>
+  </header>
+
+  <!-- About Me Section -->
+  <section id="about" class="tile">
+    <body>
+    <section class="about-us">
+      <div class="about">
+        <img src="me.jpg" class="pic" />
+        <div class="text">
+          <h2>ABOUT ME: INTRODUCTION</h2>
+          <h5>STEM Student & <span>Drawer</span></h5>
+          <p>I see life as a whirlwind adventure, a chaotic masterpiece painted with mystery and endless possibilities. As a STEM student with a passion for drawing, I navigate between logic and creativity, sketching dreams as much as I solve equations. But beyond my own journey, my true goal is to shape an education that ignites others fueling their curiosity, their passion, their fire. Just like a single spark can set the night ablaze, I want to inspire others to chase knowledge fearlessly, to create, to explore, to dream.</p>
+          <div class="data">
+		  <a href="file:///C:/Users/cassa/OneDrive/Desktop/Emp-tech%20finals/index.html#about" class="next">NEXT</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  
+   <footer>
+    <p>&copy; 2025 CASSANDRA G. MANABAT, ALL RIGHTS RESERVED.</p>
+  </footer>
+
+  <script>
+    // JavaScript to toggle sections
+    function showSection(sectionId) {
+      // Hide all sections
+      document.querySelectorAll('section').forEach(section => {
+        section.classList.add('hidden');
+      });
+
+      // Show the selected section
+      document.getElementById(sectionId).classList.remove('hidden');
+    }
+
+    // Show the "About Me" section by default
+    showSection('about');
+  </script>
+</body>
+</html>
